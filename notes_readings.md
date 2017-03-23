@@ -44,18 +44,20 @@
 
 |Character|String|
 |:---|:---|
-|<|&lt;|
-|>|&gt;|
-|&|&amp;|
-|"|&quot;|
-|'|&apos;|
-|_Non-breaking space_|&#xa0;|
+|&lt;|`&lt;`|
+|&gt;|`&gt;`|
+|&amp;|`&amp;`|
+|&quot;|`&quot;`|
+|&apos;|`&apos;`|
+|_Non-breaking space_: &#xa0;|`&#xa0;`|
 
 8. The steps of creating a XML file are:
 
-  1. _Document analysis_ (deciding hierarchy and structure);
-  2. _Document grammar_ (preparing a _schema_ where the rules of elements and structure are declared);
-  3. _Mark-up_ (with iterative __validation__ of the document).
+  - _Document analysis_ (deciding hierarchy and structure);
+
+  - _Document grammar_ (preparing a _schema_ where the rules of elements and structure are declared);
+
+  - _Mark-up_ (with iterative __validation__ of the document).
 
 # Tutorial 0: Introduction to Text Encoding and the TEI and Example 0
 
@@ -97,3 +99,88 @@
     ```
 
     - In this example, also note the _doctype_ declaration: it describes what kind of document this XML document is (for TEI it is `TEI`).
+
+4. The text contained in an XML can be either processed by the XML parser (which will turn the __serialization__ into the tree), or not. Text to be processed (the body of the document) is called __PCDATA__ (parsed character data); unparsed character data is simply _CDATA_ (for instance, snippets of code).
+
+5. The TEI guidelines are __massive__; there is a _TEI Lite_ version that is sufficient to cover 90% of the cases. The TEI are also organized into __modules__, which group related elements and attributes (parts of the TEI and specific cases).
+
+  - The module for manuscript description is #10.
+
+  > Definition of specific header and structural elements and attributes for the encoding of manuscript sources. Header elements include provisions for detailed documentation of a manuscript's or manuscript part's identification, heading information, contents, physical description, history, and additional information. Dedicated text elements cover phenomena like catchwords, dimensions, heraldry, watermarks, and so on.
+
+  - Also keep in mind that there is a module #11 dedicated to "primary sources" (and which includes "deletions, substitutions and restorations, document hands...").
+
+6. TEI has no specific _document grammars_ associated to it; that is, TEI provides guidelines to create a TEI-compliant schema, but the schema can - and should - be prepared every time from scratch.
+
+  - A TEI schema can, itself, abide by the rules of a TEI text (this is not a very easy concept).
+
+  - This is not very clear for now. Here is the example they provide:
+
+  ```
+  <TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+    <teiHeader>
+      <fileDesc>
+        <titleStmt>
+          <title>Story Time</title>
+          <author>Mauricio</author>
+        </titleStmt>
+        <publicationStmt>
+          <p>Pay royalties to Mauricio.</p>
+        </publicationStmt>
+        <sourceDesc>
+          <p>Document found inside Mauricio's head.</p>
+        </sourceDesc>
+      </fileDesc>
+    </teiHeader>
+    <text>
+      <front>
+        <divGen type="toc"/>
+      </front>
+      <body>
+        <p>Mauricio wants this document to have: TEI, core, header, and textstructure.</p>
+        <schemaSpec ident="mauricioTEI" docLang="en" xml:lang="en" prefix="">
+          <moduleRef key="tei"/>
+          <moduleRef key="header"/>
+          <moduleRef key="core"/>
+          <moduleRef key="textstructure"/>
+        </schemaSpec>
+      </body>
+    </text>
+  </TEI>
+  ```
+  - We assume that the _Stmt_ stands for "__statement__"; and that the actual _schemamaking_ occurs within the "schemaSpec" element.
+
+    - In fact, the _schemaSpec_ element is the one that makes this document a "TEI customization file."
+
+      - These are the necessary elements of a TEI structure:
+
+        - tei (infrastructure; the least clear for now);
+        - core (all common TEI elements);
+        - header (how the TEI header works);
+        - textstructure (the structure common to all TEI texts).
+
+      - Besides, most TEI schema doc files (TEI customization files) also contain _prose descriptions_ of how the schema works (like this one, where we find Mauricio's own words). This format is called ODD (One Document Does it all)
+
+      - TEI offers a specific word processor, __Roma__, dedicated to the preparation of documents like this.
+
+7. The examples that this website provides seem to do something very strange with _footnotes_. Apparently TEI P5 (in XML) is the only version that allows us to properly represent them (with opening and closing tags).
+
+# 10. Manuscript Description - From TEI P5 Guidelines
+
+- [Link](http://www.tei-c.org/release/doc/tei-p5-doc/en/html/MS.html).
+
+1. Name of the module: "msdescription."
+
+2. There's a _msDesc_ element that needs to be included in the header, within _sourceDesc_; here we include all the preliminary metadata (place, dimensions, contents...  ).
+
+# P5-MS: A general purpose tagset for manuscript description - M. J. Driscoll
+
+- [Link](http://www.digitalmedievalist.org/journal/2.1/driscoll/)
+
+1. Apparently, the MSdesc module is somehow unique in that it allows for _both_ structured and unstructured data; that is, one can describe contents and measurements either through precise elements (width and length, for instance), or through unstructured, simple paragraphs (`<p></p>`).
+
+  - So that MSdesc is an _exceptionally flexible_ module, because of its many possible needs.
+
+  - All the elements of MSdesc - with the exception of `<msIdentifier>` - are optional; but they can appear __only once__, and only __in the recommended order__.
+
+    - One needs to _copy paste_ each part of the catalog entry into a preexisting TEI structure (following its order and requirements); not vice versa (that is, not add tags to the catalog entry).
