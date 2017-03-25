@@ -183,3 +183,37 @@
   - __<choice>__ is used to offer options for _corrected_ and _sic_ (or _abbreviated_ and _expanded_);
 
   - any sort of editorial (or scribal) manipulation can be added by using _<add>_, _<del>_, _<gap>_...
+
+# msDesc
+
+- The TEI header is metadata; it's useful for people who are looking for stuff; it's useful for people who need to understand what an entry is (as a bibliographical entry); it's useful for people who need to analyze stuff;
+
+- Two many kinds of keaders:
+
+  1. the librarian's header (very extensive, precise - useful for advanced, refined researches);
+
+  2. everyman's header: explains only the essential details, but it varies a lot (people seldom agree about what it needs to contain/accomplish);
+
+- The TEI header contains four things:
+
+  1. __<fileDesc>__ (what the file is - this is _the only required part_);
+
+  2. __<encodingDesc>__ (explains what the principles of the encoding are);
+
+  3. __<profileDesc>__ (describes the non-bibliographic aspects of the text - languages, creation, setting... _this is a little confusing_; apparently, in our case, this would be _15th s._ - _unsure_);
+
+  4. __<revisionDeesc>__ (revision history of a text).
+
+- Types of content:
+
+  1. free prose;
+
+  2. grouping;
+
+  3. descriptions...;
+
+  4. probably statements (declaration).
+
+- This becomes incredibly (excessively) detailed.
+
+- _msDesc_:
