@@ -96,3 +96,90 @@
   - A good standard is that of the __digital scriptorium__ (you have to consider time/convenience/thoroughness);
 
     - it takes one three days per manuscript, according to CD.
+
+# Introduction to Encoding
+
+1. TEI is constantly in flux;
+
+2. _text is an abstraction_;
+
+3. _one should always keep in mind purpose and audience when making decisions about what and how to mark up_ (it's always debatable - e.g., italicized - emphasis - or date, person...);
+
+  - there's always interpretation and decision involved;
+
+# More advanced TEI
+
+1. Not only we have a root element and a number of nested elements; we also have a series of __nodes__ (actually everything that is found within a root);
+
+2. What do we do with special characters?
+
+  - yogh, ash, wyn, thorn?
+
+  - capital letters?
+
+  - tyronian et?
+
+    - For abbreviations, we do something like this:
+
+    ```
+    <choice>
+    <abbr>qd</abbr>
+    <expan>q<ex>uo</ex>d</expan>
+    </choice>
+    ```
+
+    - The _choice_ tags offers the computer a choice between showing the abbreviation and the expanded word; we distinguish between the characters that are there and the characters (letters) that are added, so that - in case - the software might represent those differently (for instantly, italicizing the letters introduced by the editor).
+
+3. In XML we have _nameplace declarations_ when we need to __link__ the document to an external (remote) set of rules.
+
+# TEI projects
+
+1. Many kinds of sources (visual...).
+
+2. Examples:
+
+  1. _Lancelot_ (Princeton Charrette);
+
+  2. _Van Gogh Letters_;
+
+  3. _Ibsen's Writings_;
+
+  4. _Map of Early Modern London_;
+
+  5. _Digital Archives and Pacific Cultures_.
+
+# Advanced encoding
+
+1. __Divisions__.
+
+```
+<pb n="5"/>
+<div type="chapter">
+  <div type="paragraph">
+  </div>
+</div>
+```
+
+  - Divisions have __attributes__; kinds of attributes are indicated by using the __@__ sign.
+
+  - So, __<div>__ can have:
+
+    - @type (to classify what kind of division this is);
+
+    - @n (to have a single identifier for the kind of division - so, for instance, they all refer to the same idea or person).
+
+  - Divisions can also be numbered - <div1>, <div2>...
+
+  - Divisions, when nested, can only contain __elements__ (not pure content).
+
+  - An alternative to divisions are __floating text__ sections (different from divisions - text that simply stands out).
+
+2. __The core__ contains many elements, but not all the ones that we need (manuscript description, poetry...).
+
+  - In the core we find __paragraph__; alternatives to paragraph are, for instance __<ab>__ (anonymous block), for cases when paragraph is not a useful category (the divisions seem random...).
+
+  - highlighting: for rubrics, headings... (this is problematic because it seems to contradict the idea of __descriptive__ vs. __procedural__);
+
+  - __<choice>__ is used to offer options for _corrected_ and _sic_ (or _abbreviated_ and _expanded_);
+
+  - any sort of editorial (or scribal) manipulation can be added by using _<add>_, _<del>_, _<gap>_...
