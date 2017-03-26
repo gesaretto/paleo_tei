@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml"
+	schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Title</title>
+         </titleStmt>
+         <publicationStmt>
+            <p>Publication Information</p>
+         </publicationStmt>
+         <sourceDesc>
+            <p>Information about the source</p>
+         </sourceDesc>
+      </fileDesc>
+  </teiHeader>
+  <text>
+      <body>
+         <div><lg><l>O Ihesu dulcedo cordium. Pater noster. Aue maria.</l>
+            <l>O Ihesu of mannys hert and mannys mynde.</l>
+            <l>Art the very perfide floured swetnes.<pb/></l>
+            <l>Thou suffrest and tastyth for manne kynde.</l>
+            <l>Of galle and eyesselle the foule bytternesse.</l>
+            <l>O ihesu able me in fulle clennesse</l>
+            <l>Receyue the flesche and blode at my laste ende.</l>
+            <l>Remedye to my sowle defence ayenst the fende.</l></lg></div>
+         <div><lg><l>O Ihesu regalis. Pater noster. Aue maria.</l>
+            <l>O Ihesu. O. kyng comen of kyng kynde.</l>
+            <l>O maydens son of most uertuous lyuyng.</l>
+            <l>What anguyssh what sorow in thy mynde.</l>
+            <l>Thou hadest of the Iewes cruelle seying.</l>
+            <l>In dispite and scorne they called the her kyng</l>
+            <l>And so thou were kyng bothe of byrthe and kynde.</l>
+            <l>Anderstonen this nought these iewes bethe blynde.</l></lg>
+            <lg><l>Ascende vp the onto godhede</l>
+               The voyse of thi manhoude fulfelled with penaunce.
+               Ofader why hast thou lefte me in drede
+               Of this harde dethe and this grete greuaunse.
+               The whiche I suffered for mannys mysgouyrnaunce
+               O swte ihesu with rede blody syde.
+               Unto thi ryche regyon be thou me gyde.</lg></div>
+         <div>O Ihesu alpha et oo. Pater noster. Aue maria.
+            <lg>O ihesu begynnere of alle endesse
+               And cause of the ioye that man is ynne.
+               And ender of euery parfyte besynes.
+               Graunt me outh of my sowle to voyde synne.
+               That I maye that hye place aske and wynne
+               Of the that bare the wondes so wyde.
+               And sittest in heuen on thi faders ryght syde.</lg></div>
+      </body>
+  </text>
+</TEI>
